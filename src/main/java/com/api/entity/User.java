@@ -1,5 +1,7 @@
 package com.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -91,6 +93,8 @@ public class User {
         this.username = username;
     }
 
+    // Never send the password hash back in an API response.
+    @JsonIgnore
     public String getPasswordHash() {
         return passwordHash;
     }
